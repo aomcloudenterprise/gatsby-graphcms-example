@@ -28,7 +28,7 @@ const Header = () => (
             textDecoration: `none`
           }}
         >
-          Gatsby GraphCMS Example
+          Ladies Of Rock
         </Link>
       </h1>
     </div>
@@ -38,9 +38,9 @@ const Header = () => (
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet
-      title="Gatsby GraphCMS Example"
+      title="Ladies Of Rock"
       meta={[
-        { name: `description`, content: `Gatsby GraphCMS Example` },
+        { name: `description`, content: `Ladies Of Rock` },
         { name: `keywords`, content: `gatsby, graphcms, example` }
       ]}
     />
