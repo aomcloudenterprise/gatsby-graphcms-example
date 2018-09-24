@@ -30,7 +30,7 @@ class ArtistDetailTemplate extends React.Component {
             </small>
           </figcaption>
         </figure>
-        {artist.records.length ? (
+        {artist.videos.length ? (
           <h5
             style={{
               marginBottom: `1rem`,
@@ -38,18 +38,18 @@ class ArtistDetailTemplate extends React.Component {
               textTransform: `uppercase`
             }}
           >
-            Records
+            Videos
           </h5>
         ) : null}
-        {artist.records.map((record, i) => (
+        {artist.videos.map((video, i) => (
           <div
-            key={record.id}
+            key={video.id}
             style={{
               marginBottom: `3rem`
             }}
           >
             <h3>
-              <Link to={`/records/${record.slug}`}>{record.title}</Link>
+              <Link to={`/videos/${video.slug}`}>{video.title}</Link>
             </h3>
           </div>
         ))}
@@ -77,7 +77,7 @@ export const ArtistDetailPageQuery = graphql`
         width
         height
       }
-      records {
+      videos {
         id
         slug
         title
