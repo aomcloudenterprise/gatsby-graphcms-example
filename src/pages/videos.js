@@ -30,7 +30,7 @@ class VideoPage extends Component {
                   }}
                 >
                   <Link
-                    to={`/records/` + node.slug}
+                    to={`/videos/` + node.slug}
                     style={{
                       textDecoration: `none`
                     }}
@@ -75,7 +75,7 @@ export default VideoPage;
 
 export const VideoPageQuery = graphql`
   query getAllVideos {
-    records: allVideo {
+    videos: allVideo {
       edges {
         node {
           id
