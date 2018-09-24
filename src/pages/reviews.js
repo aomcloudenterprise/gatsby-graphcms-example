@@ -38,13 +38,13 @@ class ReviewPage extends Component {
 
                   <p>
                     for{" "}
-                    <Link to={`/records/${node.record.slug}`}>
-                      <em>{node.record.title}</em>
+                    <Link to={`/videos/${node.video.slug}`}>
+                      <em>{node.video.title}</em>
                     </Link>
                     {` `}
                     by{` `}
-                    <Link to={`/artists/${node.record.artist.slug}`}>
-                      <strong>{node.record.artist.name}</strong>
+                    <Link to={`/artists/${node.video.artist.slug}`}>
+                      <strong>{node.video.artist.name}</strong>
                     </Link>
                   </p>
                   {node.rating && (
@@ -81,7 +81,7 @@ export const ReviewPageQuery = graphql`
           id
           slug
           createdAt
-          record {
+          video {
             slug
             title
             artist {
