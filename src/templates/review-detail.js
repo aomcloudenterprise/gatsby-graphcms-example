@@ -16,13 +16,13 @@ class ReviewDetailTemplate extends React.Component {
           <h1 id={review.slug}>{review.title}</h1>
           <p>
             for{" "}
-            <Link to={`/records/${review.record.slug}`}>
-              <em>{review.record.title}</em>
+            <Link to={`/videos/${review.video.slug}`}>
+              <em>{review.video.title}</em>
             </Link>
             {` `}
             by{` `}
-            <Link to={`/artists/${review.record.artist.slug}`}>
-              <strong>{review.record.artist.name}</strong>
+            <Link to={`/artists/${review.video.artist.slug}`}>
+              <strong>{review.video.artist.name}</strong>
             </Link>
           </p>
           {review.rating && (
@@ -79,7 +79,7 @@ export const ReviewDetailPageQuery = graphql`
       id
       slug
       createdAt
-      record {
+      video {
         slug
         title
         artist {
