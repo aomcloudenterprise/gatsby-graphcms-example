@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import Link from "gatsby-link";
 
-class RecordPage extends Component {
+class VideoPage extends Component {
   render() {
-    const records = this.props.data.records.edges;
+    const videos = this.props.data.videos.edges;
     return (
       <div>
-        <section className="records" style={{ textAlign: `center` }}>
-          <h1>Records</h1>
+        <section className="videos" style={{ textAlign: `center` }}>
+          <h1>Videos</h1>
           <nav>
             <ul
               style={{
@@ -20,7 +20,7 @@ class RecordPage extends Component {
                 width: `100%`
               }}
             >
-              {records.map(({ node }, i) => (
+              {videos.map(({ node }, i) => (
                 <li
                   key={node.id + `nav`}
                   style={{
@@ -71,11 +71,11 @@ class RecordPage extends Component {
   }
 }
 
-export default RecordPage;
+export default VideoPage;
 
-export const RecordPageQuery = graphql`
-  query getAllRecords {
-    records: allRecord {
+export const VideoPageQuery = graphql`
+  query getAllVideos {
+    records: allVideo {
       edges {
         node {
           id
