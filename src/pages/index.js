@@ -5,7 +5,7 @@ import Link from "gatsby-link";
 class IndexPage extends Component {
   render() {
     const artists = this.props.data.artists.edges;
-    const records = this.props.data.records.edges;
+    const videos = this.props.data.videos.edges;
     const reviews = this.props.data.reviews.edges;
     return (
       <div style={{ marginBottom: `5rem` }}>
@@ -82,9 +82,9 @@ class IndexPage extends Component {
             </ul>
           </nav>
         </section>
-        <section className="records" style={{ textAlign: `center` }}>
+        <section className="videos" style={{ textAlign: `center` }}>
           <h2>
-            <Link to="/records">Records</Link>
+            <Link to="/videos">Records</Link>
           </h2>
           <nav>
             <ul
@@ -98,7 +98,7 @@ class IndexPage extends Component {
                 width: `100%`
               }}
             >
-              {records.map(({ node }, i) => (
+              {videos.map(({ node }, i) => (
                 <li
                   key={node.id + `nav`}
                   style={{
@@ -177,13 +177,13 @@ class IndexPage extends Component {
 
                   <p>
                     for{" "}
-                    <Link to={`/records/${node.record.slug}`}>
-                      <em>{node.record.title}</em>
+                    <Link to={`/videos/${node.video.slug}`}>
+                      <em>{node.video.title}</em>
                     </Link>
                     {` `}
                     by{` `}
-                    <Link to={`/artists/${node.record.artist.slug}`}>
-                      <strong>{node.record.artist.name}</strong>
+                    <Link to={`/artists/${node.video.artist.slug}`}>
+                      <strong>{node.video.artist.name}</strong>
                     </Link>
                   </p>
                   {node.rating && (
@@ -213,7 +213,7 @@ class IndexPage extends Component {
 export default IndexPage;
 
 export const pageQuery = graphql`
-  query getAllArtistsRecordsReviews {
+  query getAllArtistsVideosReviews {
     artists: allArtist {
       edges {
         node {
@@ -226,7 +226,7 @@ export const pageQuery = graphql`
             width
             height
           }
-          records {
+          videos {
             id
             slug
             title
@@ -234,7 +234,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    records: allRecord {
+    videos: allVideo {
       edges {
         node {
           id
@@ -267,7 +267,7 @@ export const pageQuery = graphql`
           id
           slug
           createdAt
-          record {
+          video {
             slug
             title
             artist {
