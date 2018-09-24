@@ -51,7 +51,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         });
 
         const videos = result.data.allVideo.edges;
-        records.forEach(({ video }) => {
+        videos.forEach(({ video }) => {
           const path = `videos/` + video.slug;
           createPage({
             path,
