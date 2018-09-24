@@ -6,16 +6,16 @@ const propTypes = {
   data: PropTypes.object.isRequired
 };
 
-class RecordDetailTemplate extends React.Component {
+class VideoDetailTemplate extends React.Component {
   render() {
-    const { record } = this.props.data;
+    const { video } = this.props.data;
     return (
       <div>
-        <h1 id={record.slug}>{record.title}</h1>
-        {record.artist ? (
+        <h1 id={video.slug}>{video.title}</h1>
+        {video.artist ? (
           <h3>
-            <Link to={`/artists/${record.artist.slug}`}>
-              {record.artist.name}
+            <Link to={`/artists/${video.artist.slug}`}>
+              {video.artist.name}
             </Link>
           </h3>
         ) : (
@@ -24,20 +24,20 @@ class RecordDetailTemplate extends React.Component {
         <figure style={{ marginBottom: `1rem` }}>
           <img
             src={`https://media.graphcms.com/resize=w:512,h:512,a:top,fit:crop/${
-              record.cover.handle
+              video.cover.handle
             }`}
-            alt={record.name}
-            title={record.name}
+            alt={video.name}
+            title={video.name}
             width="256"
             style={{ marginBottom: `0.5rem` }}
           />
         </figure>
-        {record.tracks.length ? (
+        {video.tracks.length ? (
           <h5 style={{ marginBottom: `1.5rem`, textTransform: `uppercase` }}>
             Tracklist
           </h5>
         ) : null}
-        {record.tracks.map((track, i) => (
+        {video.tracks.map((track, i) => (
           <div key={track.id}>
             <h6>
               {track.title}
@@ -46,7 +46,7 @@ class RecordDetailTemplate extends React.Component {
             </h6>
           </div>
         ))}
-        {record.reviews.length ? (
+        {video.reviews.length ? (
           <h5
             style={{
               marginBottom: `1.5rem`,
@@ -57,7 +57,7 @@ class RecordDetailTemplate extends React.Component {
             Reviews
           </h5>
         ) : null}
-        {record.reviews.map((review, i) => (
+        {video.reviews.map((review, i) => (
           <div
             key={review.id}
             style={{
@@ -71,7 +71,7 @@ class RecordDetailTemplate extends React.Component {
         ))}
         <p style={{ marginBottom: `2.5rem`, marginTop: `2.5rem` }}>
           <small>
-            <a href={`https://media.graphcms.com/${record.cover.handle}`}>
+            <a href={`https://media.graphcms.com/${video.cover.handle}`}>
               full-size, hi-res cover photo
             </a>
           </small>
@@ -83,20 +83,20 @@ class RecordDetailTemplate extends React.Component {
             textTransform: `uppercase`
           }}
         >
-          <Link to="/records">All Records</Link>
+          <Link to="/videos">All Videos</Link>
         </h4>
       </div>
     );
   }
 }
 
-RecordDetailTemplate.propTypes = propTypes;
+VideoDetailTemplate.propTypes = propTypes;
 
-export default RecordDetailTemplate;
+export default VideoDetailTemplate;
 
-export const RecordDetailPageQuery = graphql`
-  query getRecordById($id: String!) {
-    record(id: { eq: $id }) {
+export const VideoDetailPageQuery = graphql`
+  query getVideoById($id: String!) {
+    video(id: { eq: $id }) {
       id
       slug
       title
