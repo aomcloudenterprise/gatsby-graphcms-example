@@ -10,17 +10,10 @@ class IndexPage extends Component {
     return (
       <div style={{ marginBottom: `5rem` }}>
         <section className="artists" style={{ textAlign: `center` }}>
-          <p>
-            Welcome to your new{` `}
-            <a href="https://github.com/GraphCMS/gatsby-graphcms-example">
-              Gatsby example site
-            </a>
-            {` `}
-            using the{` `}
-            <a href="https://github.com/GraphCMS/gatsby-source-graphcms">
-              GraphCMS source plugin
-            </a>.
-          </p>
+          <h2>
+            Welcome to 
+            Ladies Of Rock
+          </h2>
           <h2>
             <Link to="/artists">Artists</Link>
           </h2>
@@ -84,7 +77,7 @@ class IndexPage extends Component {
         </section>
         <section className="videos" style={{ textAlign: `center` }}>
           <h2>
-            <Link to="/videos">Records</Link>
+            <Link to="/videos">Videos</Link>
           </h2>
           <nav>
             <ul
@@ -108,7 +101,7 @@ class IndexPage extends Component {
                   }}
                 >
                   <Link
-                    to={`/records/` + node.slug}
+                    to={`/videos/` + node.slug}
                     style={{
                       textDecoration: `none`
                     }}
