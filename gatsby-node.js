@@ -25,8 +25,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     const artistDetailPageTemplate = path.resolve(
       `./src/templates/artist-detail.js`
     );
-    const recordDetailPageTemplate = path.resolve(
-      `./src/templates/record-detail.js`
+    const videoDetailPageTemplate = path.resolve(
+      `./src/templates/video-detail.js`
     );
     const reviewDetailPageTemplate = path.resolve(
       `./src/templates/review-detail.js`
@@ -50,14 +50,14 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           });
         });
 
-        const records = result.data.allRecord.edges;
-        records.forEach(({ record }) => {
-          const path = `records/` + record.slug;
+        const videos = result.data.allVideo.edges;
+        records.forEach(({ video }) => {
+          const path = `videos/` + video.slug;
           createPage({
             path,
-            component: recordDetailPageTemplate,
+            component: videoDetailPageTemplate,
             context: {
-              id: record.id
+              id: video.id
             }
           });
         });
